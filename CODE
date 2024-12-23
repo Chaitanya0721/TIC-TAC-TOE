@@ -1,0 +1,81 @@
+Code Explanation: Tic Tac Toe Game
+Overview
+This Python script is a simple implementation of the classic Tic Tac Toe game. Two players take turns marking spaces on a 3x3 grid until one player achieves three marks in a row (horizontally, vertically, or diagonally) or the game ends in a tie.
+
+Code Breakdown
+Initialization:
+
+python code
+board = ["_","_","_","_","_","_","_","_","_"]
+The board list represents the Tic Tac Toe grid. Initially, all positions are unmarked (_).
+Displaying the Board:
+
+python code
+def Board():
+    print(board[0] + " | " + board[1] + " | " + board[2])
+    print(board[3] + " | " + board[4] + " | " + board[5])
+    print(board[6] + " | " + board[7] + " | " + board[8])
+This function prints the current state of the board in a user-friendly format.
+Checking the Result:
+
+python code
+def Result(Icon):
+    if (board[0] == board[1] == board[2] == Icon) or \
+       (board[3] == board[4] == board[5] == Icon) or \
+       (board[6] == board[7] == board[8] == Icon) or \
+       (board[0] == board[3] == board[6] == Icon) or \
+       (board[1] == board[4] == board[7] == Icon) or \
+       (board[2] == board[5] == board[8] == Icon) or \
+       (board[0] == board[4] == board[8] == Icon) or \
+       (board[2] == board[4] == board[6] == Icon):
+        print(Icon, "'s Wins")
+        sys.exit("Game Over")
+    elif "_" in board:
+        print("Continue Playing")
+    else:
+        print("Tie")
+        sys.exit()
+This function checks if a player has won, if the game is tied, or if it should continue.
+Winning conditions are evaluated for all rows, columns, and diagonals.
+The game ends with a win message, tie message, or continues playing.
+Main Game Logic:
+
+python code
+def Play_game():
+    Board()
+    x = 1
+    o = 0
+    Turn = 0
+    while x > 0:
+        if x == o + 1:
+            print("It is X's Turn")
+            Turn1 = int(input("Enter the position from 1-9: "))
+            board[Turn1 - 1] = "X"
+            Board()
+            x = x + 1
+            Result("X")
+        else:
+            print("It is O's Turn")
+            Turn1 = int(input("Enter the position from 1-9: "))
+            board[Turn1 - 1] = "O"
+            Board()
+            o += 1
+            Result("O")
+Play_game()
+
+Alternates turns between player X and player O.
+Players input a position (1-9), which maps to the corresponding index in the board list.
+After every move, the board is updated and displayed, and the Result function checks for the game outcome.
+How to Run
+Save the code in a file, e.g., tic_tac_toe.py.
+Run the script in Python:
+bash
+Copy code
+python tic_tac_toe.py
+Follow the on-screen instructions to play.
+Enhancements
+Here are some potential improvements:
+
+Add input validation to prevent overwriting occupied positions or entering invalid indices.
+Implement a single-player mode with an AI opponent.
+Enhance the user interface with a GUI or web-based front end.
