@@ -1,0 +1,57 @@
+import sys
+board=["_","_","_","_","_","_","_","_","_"]
+     
+def Board():
+   
+    print(board[0] + " | " + board[1] + " | " + board[2])
+    print(board[3] + " | " + board[4] + " | " + board[5])
+    print(board[6] + " | " + board[7] + " | " + board[8])
+
+def Result(Icon):
+   
+    if (board[0] == board[1] == board[2] == Icon) or \
+       (board[3] == board[4] == board[5] == Icon) or \
+       (board[6] == board[7] == board[8] == Icon) or \
+       (board[0] == board[3] == board[6] == Icon) or \
+       (board[1] == board[4] == board[7] == Icon) or \
+       (board[2] == board[5] == board[8] == Icon) or \
+       (board[0] == board[4] == board[8] == Icon) or \
+       (board[2] == board[4] == board[6] == Icon):
+        print(Icon,"'s Wins")
+        sys.exit("Game Over")
+       
+     
+         
+    elif "_" in board:
+        print("Continue Playing")
+       
+    else:
+        print("Tie")
+        sys.exit()
+
+def Play_game():
+    Board()
+    x=1
+    o=0
+    Turn=0
+    while x>0:
+        if x==o+1:
+            print("It is X's Turn")
+            Turn1=int(input("Enter the position from 1-9: "))
+            board[Turn1-1]="X"
+            Board()
+            x=x+1
+            Result("X")
+           
+        else:
+            print("It is O's Turn")
+            Turn1=int(input("Enter the position from 1-9: "))
+            board[Turn1-1]="O"
+            Board()
+            o+=1
+            Result("O")
+                     
+Play_game()
+
+
+OUTPUT:
