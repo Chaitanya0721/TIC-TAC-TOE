@@ -66,6 +66,7 @@ Play_game()
 Alternates turns between player X and player O.
 Players input a position (1-9), which maps to the corresponding index in the board list.
 After every move, the board is updated and displayed, and the Result function checks for the game outcome.
+
 How to Run
 Save the code in a file, e.g., tic_tac_toe.py.
 Run the script in Python:
@@ -73,6 +74,7 @@ bash
 Copy code
 python tic_tac_toe.py
 Follow the on-screen instructions to play.
+
 Enhancements
 Here are some potential improvements:
 
